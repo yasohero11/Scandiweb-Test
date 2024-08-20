@@ -1,0 +1,101 @@
+
+$input-border-color: #ced4da
+$input-border-color-focus: #80bdff
+$input-bg: #fff
+$input-color: #495057
+$input-border-radius: 0.25rem
+$input-padding-y: 0.375rem
+$input-padding-x: 0.75rem
+$input-focus-box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25)
+
+
+@mixin input-styles
+  display: block
+  width: 100%
+  padding: $input-padding-y $input-padding-x
+  font-size: 1rem
+  line-height: 1.5
+  color: $input-color
+  background-color: $input-bg
+  background-clip: padding-box
+  border: 1px solid $input-border-color
+  border-radius: $input-border-radius
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out
+
+  &:focus
+    border-color: $input-border-color-focus
+    outline: 0
+    box-shadow: $input-focus-box-shadow
+
+
+input,
+textarea,
+select
+  @include input-styles
+
+
+.form-control
+  @include input-styles
+
+
+input:disabled,
+textarea:disabled,
+select:disabled
+  background-color: #e9ecef
+  opacity: 1
+  cursor: not-allowed
+
+input:read-only,
+textarea:read-only
+  background-color: #e9ecef
+  cursor: default
+
+// Custom Inputs
+.custom-input
+  position: relative
+  display: flex
+  align-items: center
+  padding: $input-padding-y $input-padding-x
+  font-size: 1rem
+
+  &.custom-file-input
+    display: block
+    width: 100%
+    padding: 0.375rem 0.75rem
+    font-size: 1rem
+    line-height: 1.5
+    color: $input-color
+    background-color: $input-bg
+    border: 1px solid $input-border-color
+    border-radius: $input-border-radius
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out
+
+    &.custom-file-label
+      display: block
+      width: 100%
+      height: calc(2.5rem + 2px)
+      line-height: 1.5
+      background-color: $input-bg
+      border: 1px solid $input-border-color
+      border-radius: $input-border-radius
+
+.form-data
+    display: flex
+    flex: 1
+    flex-direction: column
+    gap: 15px
+    input
+        max-width: 500px
+
+a
+ text-decoration: none
+
+#controls-section
+  .controls
+    display: none
+
+  .controls.selected
+    display: block !important
+
+
+    

@@ -1,0 +1,101 @@
+$primary-color: #0d6efd
+$secondary-color: #6c757d
+$danger-color: #dc3545
+$body-bg: #f8f9fa
+$text-color: #212529
+
+body
+  background-color: $body-bg
+  color: $text-color
+  font-family: Arial, sans-serif
+  padding: 2rem
+  display: flex
+  flex-direction: column
+  min-height: 95vh
+
+
+
+@mixin button-styles($bg-color, $text-color: #fff)
+  background-color: $bg-color
+  color: $text-color
+  padding: 0.375rem 0.75rem
+  border: none
+  border-radius: 0.25rem
+  cursor: pointer
+  text-align: center
+
+#header
+
+  #header-body
+    
+    
+    display: flex
+    justify-content: space-between
+    align-items: center
+    margin: auto
+
+.product-list
+  display: flex
+  gap: 18px
+
+.producs-container
+  flex: 1
+  overflow-y: auto
+  
+  
+
+
+
+#buttons
+    text-align: right
+    .btn
+      @include button-styles($primary-color)
+
+    .btn-secondary
+      @include button-styles($secondary-color)
+
+    .btn-danger
+      @include button-styles($danger-color)
+.card
+  background-color: #fff
+  border: 1.5px solid #ddd
+  border-radius: 0.25rem
+  margin-bottom: 1rem
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1)
+  min-width: 216px
+  min-height: 208px
+
+  .card-body
+    padding: 1rem
+
+    h6
+      margin: 10px 0px
+      font-size: 0.875rem
+      color: $text-color
+      text-align: center
+
+      &.text-body-secondary
+        color: $secondary-color
+
+  .checkbox
+    display: flex
+
+    padding-left: 1rem
+    padding-top: 1rem
+    margin-bottom: 0.5rem
+
+    .form-check-input
+      margin: 0
+
+.footer
+  text-align: center
+
+#buttons
+  display: flex
+  gap: 10px
+  *
+     font-size: 15px
+  
+
+
+  
