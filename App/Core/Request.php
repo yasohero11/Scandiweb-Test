@@ -18,7 +18,12 @@ class Request {
         switch ($this->type) {
             case 'POST':
             case 'PUT':
+            $contentType = $_SERVER["CONTENT_TYPE"] ?? '';
+            if (stripos($contentType, 'application/json') !== false) {
+                $body = json_decode(file_get_contents('php://input'), true);
+            } else {
                 $body = $_POST;
+            }
                 break;
             case 'DELETE':
                 parse_str(file_get_contents('php://input'), $body);

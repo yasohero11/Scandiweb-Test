@@ -9,7 +9,8 @@ require_once dirname(__DIR__) . '/database/connect.php';
 
 $pdo  = DBConnection::getInstance();
 require_once dirname(__DIR__) . '/vendor/autoload.php';
-
+require_once dirname(__DIR__) . '/App/Core/Router.php';
+require_once dirname(__DIR__) . '/App/Core/Router.php';
 require_once dirname(__DIR__) . '/Routes/dashboard.php';
 
 

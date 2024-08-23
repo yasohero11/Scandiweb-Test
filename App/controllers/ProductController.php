@@ -6,7 +6,7 @@ use App\Core\Controller;
 use App\Core\Request;
 use App\Core\Router;
 use App\Models\Product;
-
+use App\Validators\ProductValidator;
 
 
 class ProductController extends Controller
@@ -28,13 +28,35 @@ class ProductController extends Controller
 
     public function create( Request $request)
     {
+        $productValidator = new ProductValidator($request->getBody());
+        if(!$productValidator->validate()){
+            echo json_encode(["success" => false , "errors" =>  $productValidator->errors()]);
+            exit();
+        };
+
         $filtered_array = array_filter($request->getBody(), function($value) {
             return $value !== "";
         });
 
-        Product::insert($filtered_array);
 
-        $this->redirect("/");
+        $result = Product::insert($filtered_array);
+
+
+        if ($result) {
+            $response = [
+                'success' => true,
+                'message' => 'Product created successfully!',
+                'data' => $filtered_array
+            ];
+        } else {
+            $response = [
+                'success' => false,
+                'message' => 'Failed to create product.',
+            ];
+        }
+
+
+        echo json_encode($response);
     }
 
     public function delete(Request  $req)
@@ -42,28 +64,16 @@ class ProductController extends Controller
 
 
 
-        Product::where("id" , "in", "(".implode(',',array_values($req->getBody()["ids"])).")" );
+
+        Product::where("id" , "in", "(".implode(',',$req->getBody()["ids"] ).")" );
         Product::delete();
-        $this->redirect('/');
+        $response = [
+            'success' => true,
+            'message' => 'Product created successfully!',
+
+        ];
+        echo json_encode($response);
     }
 
-/*
 
-
-    public function create()
-    {
-        $request = $_REQUEST;
-        $product = $this->model(ucfirst($request['productType']));
-        $product->add($request);
-        $this->redirect('/');
-    }
-
-    public function delete()
-    {
-        $request = $_REQUEST;
-        $product = new Product();
-        $product->delete($request);
-        $this->redirect('/');
-    }
-    */
 }

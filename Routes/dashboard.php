@@ -1,7 +1,6 @@
-
-
 <?php
 
+namespace App\Routes;
 
 use App\Controllers\ProductController;
 use App\Core\Request;

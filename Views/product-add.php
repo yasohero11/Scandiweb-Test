@@ -31,7 +31,7 @@
             </a>
             <button id="saveBtn" class="btn btn-primary">
                 SAVE
-            </Button>
+            </button>
                 </div>
             </div>
             <hr>
@@ -51,82 +51,41 @@
             <div class="col-sm-3">
                 <input name="sku" type="varchar" class="form-control" id="sku" >
 
-                <span class="error "></span>
+                <span class="error" id="sku-error"></span>
             </div>
         </div>
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Name</label>
             <div class="col-sm-3">
                 <input name="name"  class="form-control" id="name"  >
-                <span class="error"></span>
+                <span class="error" id="name-error"></span>
             </div>
         </div>
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Price ($)</label>
             <div class="col-sm-3">
                 <input name="price" type="number" class="form-control" id="price" >
-                <span class="error"></span>
+                <span class="error" id="price-error"></span>
             </div>
         </div>
-        <div class="dropdown">
+
             <label class="col-sm-2 col-form-label">Type Switcher</label>
-            <select class="dropdown-toggle" type="button" id="productType" name="type" style="width: 300px;"
-                    onchange="productTypeChanged(this.value);" >
-                <option value="">Type Switcher</option>
-                <option value="DVD">DVD-Disc</option>
+            <select class="dropdown-toggle"  id="productType" name="type" style="width: 300px;">
+                <option  value="">Type Switcher</option>
+                <option value="DVD">DVD</option>
                 <option value="Furniture">Furniture</option>
                 <option value="Book">Book</option>
-                <br>
-            </select><br><br>
-            <span class="error"></span>
-        </div>
-        <br>
+
+            </select>
+            <span class="error" id="type-error"></span>
+
+
 
 
         <div id="controls-section">
 
 
-        <div id="DVD" class="controls controls-DVD" >
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Size (MB)</label>
-                <div class="col-sm-3">
-                    <input name="size" type="number" class="form-control" id="size" ><br>
-                    <strong>Please, provide disc space in MB</strong>
-                </div>
-            </div>
-        </div>
-        <div id="Furniture" class="controls controls-Furniture" >
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Height (CM)</label>
-                <div class="col-sm-3">
-                    <input name="height" type="number" class="form-control" id="height" >
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Width (CM)</label>
-                <div class="col-sm-3">
-                    <input name="width" type="number" class="form-control" id="width" >
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Length (CM)</label>
-                <div class="col-sm-3">
-                    <input name="length" type="number" class="form-control" id="length" ><br>
-                    <strong>Please, provide dimensions</strong>
-                </div>
-                <br>
-            </div>
-        </div>
-        <div id="Book" class="controls controls-Book" >
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Weight (KG)</label>
-                <div class="col-sm-3">
-                    <input name="weight" type="number" class="form-control" id="weight" ><br>
-                    <strong>Please, provide weight in KG</strong>
-                </div>
-                <br>
-            </div>
-        </div>
+
         </div>
     </form>
 
